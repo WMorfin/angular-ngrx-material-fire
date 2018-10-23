@@ -22,6 +22,12 @@
 @import 'app/examples/theming/parent/parent.component.scss-theme';
 @import 'app/examples/theming/child/child.component.scss-theme';
 @import 'app/examples/examples/examples.component.scss-theme';
+@import 'app/account/account/account.component.scss-theme';
+@import 'app/account/login/login.component.scss-theme';
+@import 'app/account/register/register.component.scss-theme';
+@import 'app/user/user/user.component.scss-theme';
+@import 'app/user/home/home.component.scss-theme';
+@import 'app/user/profile/profile.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
   @include anmf-styles-reset-theme($theme);
@@ -33,6 +39,12 @@
   @include anmf-parent-component-theme($theme);
   @include anmf-child-component-theme($theme);
   @include anmf-examples-component-theme($theme);
+  @include anmf-account-component-theme($theme);
+  @include anmf-login-component-theme($theme);
+  @include anmf-register-component-theme($theme);
+  @include anmf-user-component-theme($theme);
+  @include anmf-home-component-theme($theme);
+  @include anmf-profile-component-theme($theme);
 }
 
 .default-theme {

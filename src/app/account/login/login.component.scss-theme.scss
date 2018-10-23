@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+@mixin anmf-login-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+
+  anmf-login {
+    > .wrapper {
+      background: mat-color($background, background);
+    }
+  }
+}
