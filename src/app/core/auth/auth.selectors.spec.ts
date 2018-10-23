@@ -17,6 +17,7 @@ function createAuthState() {
     auth: {
       isAuthenticated: false
     },
-    router: {} as any
+    router: {} as any,
+    user: {} as any
   };
 }

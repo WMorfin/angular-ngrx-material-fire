@@ -23,6 +23,9 @@ import {
 } from '@ngrx/router-store';
 import { CustomSerializer } from './router/custom-serializer';
 
+import { AuthFireGuardService } from './auth-fire/auth-fire-guard.service';
+import { UserFacade } from './auth-fire/auth-fire.facade';
+
 @NgModule({
   imports: [
     // angular
@@ -32,7 +35,7 @@ import { CustomSerializer } from './router/custom-serializer';
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, UserFacade]),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
@@ -52,6 +55,7 @@ import { CustomSerializer } from './router/custom-serializer';
   providers: [
     LocalStorageService,
     AuthGuardService,
+    AuthFireGuardService,
     AnimationsService,
     httpInterceptorProviders,
     TitleService,
