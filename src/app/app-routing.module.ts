@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: 'app/account/account.module#AccountModule'
   },
   {
+    path: 'user',
+    loadChildren: 'app/user/user.module#UserModule'
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }
