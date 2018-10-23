@@ -14,9 +14,13 @@ import { AuthState } from './auth/auth.models';
 import { authReducer } from './auth/auth.reducer';
 import { RouterStateUrl } from './router/router.state';
 
+import { User } from './auth-fire/auth-fire.model';
+import { userReducer } from './auth-fire/auth-fire.reducer';
+
 export const reducers: ActionReducerMap<AppState> = {
   auth: authReducer,
-  router: routerReducer
+  router: routerReducer,
+  user: userReducer
 };
 
 export const metaReducers: MetaReducer<AppState>[] = [
@@ -41,4 +45,5 @@ export const selectRouterState = createFeatureSelector<
 export interface AppState {
   auth: AuthState;
   router: RouterReducerState<RouterStateUrl>;
+  user: User;
 }

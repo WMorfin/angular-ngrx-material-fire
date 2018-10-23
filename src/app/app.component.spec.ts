@@ -3,6 +3,12 @@ import { TestBed, async } from '@angular/core/testing';
 import { TestingModule } from '@testing/utils';
 import { CoreModule } from '@app/core';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
