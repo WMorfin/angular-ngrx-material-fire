@@ -35,7 +35,7 @@ describe('CRUD Actions', () => {
 
   context('Empty book title and author', () => {
     beforeEach(() => {
-      cy.visit('/examples/crud');
+      cy.visit('/#/examples/crud');
       cy.get('[data-testid="add-crud"]').click();
     });
 
