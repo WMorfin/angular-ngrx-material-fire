@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: 'app/examples/examples.module#ExamplesModule'
   },
   {
+    path: 'account',
+    loadChildren: 'app/account/account.module#AccountModule'
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }
