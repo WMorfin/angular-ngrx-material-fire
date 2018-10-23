@@ -19,5 +19,13 @@ export const environment = {
     angularCli: packageJson.devDependencies['@angular/cli'],
     typescript: packageJson.devDependencies['typescript'],
     cypress: packageJson.devDependencies['cypress']
+  },
+  firebaseConfig: {
+    apiKey: 'AIzaSyDhSRYCtnQCfWF1NBuQGDv8Kk2QOUb0jSA',
+    authDomain: 'guatedev-platform.firebaseapp.com',
+    databaseURL: 'https://guatedev-platform.firebaseio.com',
+    projectId: 'guatedev-platform',
+    storageBucket: 'guatedev-platform.appspot.com',
+    messagingSenderId: '1072313633743'
   }
 };

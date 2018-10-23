@@ -11,6 +11,15 @@ import { StaticModule } from './static';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// AngularFire2 Modules
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+
+import { environment } from '../environments/environment';
+
 @NgModule({
   imports: [
     // angular
@@ -26,7 +35,17 @@ import { AppComponent } from './app.component';
     SettingsModule,
 
     // app
-    AppRoutingModule
+    AppRoutingModule,
+
+    // firebase
+    AngularFireModule.initializeApp(
+      environment.firebaseConfig,
+      'angular-ngrx-material-fire'
+    ),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireFunctionsModule
   ],
   declarations: [AppComponent],
   providers: [],
