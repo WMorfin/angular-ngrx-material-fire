@@ -1,0 +1,9 @@
+$anmf-nature-primary: mat-palette($mat-brown, 700, 300, 900);
+$anmf-nature-accent: mat-palette($mat-deep-purple, 300);
+$anmf-nature-warn: mat-palette($mat-red, 600);
+
+$anmf-nature-theme: mat-light-theme(
+  $anmf-nature-primary,
+  $anmf-nature-accent,
+  $anmf-nature-warn
+);

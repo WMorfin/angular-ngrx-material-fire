@@ -1,0 +1,5 @@
+$anmf-primary: mat-palette($mat-indigo, 800, 300, 900);
+$anmf-accent: mat-palette($mat-light-blue);
+$anmf-warn: mat-palette($mat-pink, 600);
+
+$anmf-theme: mat-light-theme($anmf-primary, $anmf-accent, $anmf-warn);

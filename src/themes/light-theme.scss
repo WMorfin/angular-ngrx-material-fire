@@ -1,0 +1,9 @@
+$anmf-light-primary: mat-palette($mat-grey, 200, 500, 300);
+$anmf-light-accent: mat-palette($mat-brown, 200);
+$anmf-light-warn: mat-palette($mat-deep-orange, 200);
+
+$anmf-light-theme: mat-light-theme(
+  $anmf-light-primary,
+  $anmf-light-accent,
+  $anmf-light-warn
+);
