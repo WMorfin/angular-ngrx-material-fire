@@ -1,4 +1,4 @@
-<nav mat-tab-nav-bar class="d-none d-sm-flex">
+<nav mat-tab-nav-bar mat-stretch-tabs>
   <a mat-tab-link
      *ngFor="let e of account"
      [routerLink]="e.link"
@@ -7,17 +7,6 @@
      [disabled]="e.auth">
     {{e.label | translate}}
   </a>
-</nav>
-
-<nav class="nav-responsive d-sm-none d-flex justify-content-center">
-    <mat-select [placeholder]="'anmf.account' | translate" [value]="'login'">
-      <mat-option *ngFor="let e of account"
-        [value]="e"
-        [routerLink]="e.link"
-        [disabled]="e.auth">
-          {{e.label | translate}}
-      </mat-option>
-    </mat-select>
 </nav>
 
 <div [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path">
