@@ -202,9 +202,44 @@ export class UserFacade {
     tap(payload => {
       console.log('loginSuccess$ action > [payload.uid]: ' + payload.uid);
       console.log('loginSuccess$ > router.navigate > user/home');
-      this.router.navigate(['user/home']);
+
+      this.zone.run(() => {
+        this.router.navigate(['user/home']);
+      });
+
       console.log('loginSuccess$ > local Storage > set Item');
       this.localStorageService.setItem(AUTH_KEY, payload);
+    })
+  );
+
+  @Effect()
+  logout$: Observable<Action> = this.actions$.pipe(
+    ofType(userActions.LOGOUT_USER),
+    pipe(
+      map((action: userActions.LogoutUser) => action.payload),
+      switchMap(payload => {
+        console.log('logout$ afAuth userAction');
+        return of(this.afAuth.auth.signOut());
+      }),
+      map(authData => {
+        return new userActions.LogoutSuccess();
+      }),
+      catchError((err, caught) => {
+        of(new userActions.AuthError({ error: err.code }));
+        return caught;
+      })
+    )
+  );
+
+  @Effect({ dispatch: false })
+  logoutSuccess$ = this.actions$.pipe(
+    ofType(userActions.LOGOUT_SUCCESS),
+    tap(() => {
+      console.log('logoutSuccess$ > about/');
+      // this.showNotification(successLogoutMsg, '');
+      this.zone.run(() => {
+        this.router.navigate(['']);
+      });
     })
   );
 

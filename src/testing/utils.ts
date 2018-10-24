@@ -19,6 +19,10 @@ import { UserFacade } from '../app/core/auth-fire/auth-fire.facade';
 
 import { environment } from '../environments/environment';
 
+// Register & sanitize SVG icons
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material';
+
 @Injectable()
 export class MockStore<T> extends Store<T> {
   private stateSubject = new BehaviorSubject<T>({} as T);
@@ -67,5 +71,12 @@ export function provideMockStore() {
   providers: [provideMockStore(), UserFacade]
 })
 export class TestingModule {
-  constructor() {}
+  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
+    iconRegistry.addSvgIcon(
+      'google-ic',
+      sanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/social-icons/google.svg'
+      )
+    );
+  }
 }

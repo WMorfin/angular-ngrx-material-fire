@@ -3,11 +3,40 @@
 @mixin anmf-login-component-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
   $background: map-get($theme, background);
 
   anmf-login {
     > .wrapper {
-      background: mat-color($background, background);
+      background: url('../src/assets/fx-blue.png') top -250px center no-repeat,
+        linear-gradient(
+          to bottom,
+          mat-color($primary) 20%,
+          mat-color($primary) 40%,
+          mat-color($accent) 100%
+        );
+
+      > .heading-card {
+        background-color: transparent;
+      }
+
+      > .container {
+        > .row {
+          > .col-md-6 {
+            > .login-card {
+              background: mat-color($background, background);
+              > .login-card-content {
+                > .em-or {
+                  > span {
+                    background: mat-color($background, background);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

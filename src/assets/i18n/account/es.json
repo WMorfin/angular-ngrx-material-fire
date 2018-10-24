@@ -1,5 +1,34 @@
 {
   "anmf.account": "Cuenta",
-  "anmf.account.menu.login": "Iniciar Sesion",
-  "anmf.account.menu.register": "Registrarse"
+  "anmf.account.menu.login": "Iniciar Sesión",
+  "anmf.account.menu.register": "Registrar",
+
+  "anmf.account.login.header": "Iniciar sesión aqui",
+  "anmf.account.login.subheader": "Utiliza tu cuenta existente",
+  "anmf.account.login.google": "Iniciar con Google",
+  "anmf.account.login.facebook": "Iniciar con Facebook",
+  "anmf.account.login.twitter": "Iniciar con Twitter",
+  "anmf.account.login.github": "Iniciar con Github",
+  "anmf.account.login.email": "Iniciar con Correo",
+  "anmf.account.login.phone": "Iniciar con Telefono",
+  "anmf.account.login.or": "o inicia sesión con",
+
+  "anmf.account.login.mail-form": "Correo electrónico",
+  "anmf.account.login.mail-input": "Ingresa tu correo electrónico",
+  "anmf.account.login.mail-req": "Ingresar una dirección de correo electrónico",
+  "anmf.account.login.mail-invalid": "Correo electrónico invalido",
+
+  "anmf.account.login.pass-form": "Contraseña",
+  "anmf.account.login.pass-input": "Ingresa tu contraseña",
+  "anmf.account.login.pass-req": "Ingresar una contraseña",
+  "anmf.account.login.pass-invalid": "La contraseña debe tener al menos 6 caracteres",
+  "anmf.account.login.pass-reset": "Cambiar contraseña",
+
+  "anmf.account.login.tooltip-mail": "Clic para insertar @",
+  "anmf.account.login.tooltip-pass": "Ver / Ocultar contraseña",
+
+  "anmf.account.login.terms-a": "Al continuar, confirmas que aceptas nuestras",
+  "anmf.account.login.terms-b": "Condiciones del Servicio",
+  "anmf.account.login.terms-c": "y",
+  "anmf.account.login.terms-d": "Política de Privacidad"
 }

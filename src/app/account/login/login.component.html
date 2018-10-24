@@ -1,3 +1,131 @@
-<p>
-  login works!
-</p>
+<div class="wrapper" *ngIf="user$ | async as user">
+
+  <mat-card class="heading-card" [class.mat-elevation-z0]="true">
+    <img mat-card-image src="https://tpc.googlesyndication.com/simgad/5087173954933374359" alt="login header" (click)="goRegister(user.loading)"
+      [ngClass]="routeAnimationsElements">
+  </mat-card>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <mat-card class="login-card" [ngClass]="routeAnimationsElements">
+
+          <div class="loading-bar">
+            <mat-progress-bar *ngIf="user.loading" mode="indeterminate"></mat-progress-bar>
+          </div>
+
+          <mat-card-content class="login-card-content">
+            <h3 class="mat-subheading-2" [ngClass]="routeAnimationsElements">{{ 'anmf.account.login.header' | translate
+              }}</h3>
+            <h4 class="mat-subheading-1" [ngClass]="routeAnimationsElements">
+              {{ 'anmf.account.login.subheader' | translate }}
+            </h4>
+
+            <div class="social-btn">
+              <button class="btn-google" mat-raised-button (click)="signInWithGoogle()" [disabled]="user.loading || user.uid" [ngClass]="routeAnimationsElements">
+                <mat-icon svgIcon="google-ic"></mat-icon>
+                <span>{{ 'anmf.account.login.google' | translate }}</span>
+              </button>
+            </div>
+
+            <div class="social-btn">
+              <button class="btn-fb" mat-raised-button (click)="signInWithFacebook()" [disabled]="user.loading || user.uid" [ngClass]="routeAnimationsElements">
+                <fa-icon [icon]="['fab','facebook']"></fa-icon>
+                <span>{{ 'anmf.account.login.facebook' | translate }}</span>
+              </button>
+            </div>
+
+            <div class="social-btn">
+              <button class="btn-twitter" mat-raised-button (click)="signInWithTwitter()" [disabled]="user.loading || user.uid" [ngClass]="routeAnimationsElements">
+                <fa-icon [icon]="['fab','twitter']"></fa-icon>
+                <span>{{ 'anmf.account.login.twitter' | translate }}</span>
+              </button>
+            </div>
+
+            <div class="social-btn">
+              <button class="btn-github" mat-raised-button (click)="signInWithGithub()" [disabled]="user.loading || user.uid" [ngClass]="routeAnimationsElements">
+                <fa-icon [icon]="['fab','github']"></fa-icon>
+                <span>{{ 'anmf.account.login.github' | translate }}</span>
+              </button>
+            </div>
+
+
+            <div class="em-or">
+              <span>{{ 'anmf.account.login.or' | translate }}</span>
+            </div>
+
+
+            <form class="form-container" [formGroup]="loginForm" (ngSubmit)="submitHandler()" [ngClass]="routeAnimationsElements">
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'anmf.account.login.mail-form' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'anmf.account.login.mail-input' | translate }}" formControlName="email"
+                  required>
+                <mat-error *ngIf="loginForm.get('email').hasError('required')">{{ 'anmf.account.login.mail-req' |
+                  translate }}</mat-error>
+                <mat-error *ngIf="loginForm.get('email').hasError('email')">{{ 'anmf.account.login.mail-invalid' |
+                  translate }}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'anmf.account.login.pass-form' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'anmf.account.login.pass-input' | translate }}" formControlName="password"
+                  [type]="password" required>
+                <mat-error *ngIf="loginForm.get('password').hasError('required')">{{ 'anmf.account.login.pass-req'
+                  | translate }}</mat-error>
+                <mat-error *ngIf="loginForm.get('password').hasError('minlength')">{{
+                  'anmf.account.login.pass-invalid' | translate }}</mat-error>
+              </mat-form-field>
+
+              <div class="social-btn">
+                <button class="btn-email" mat-raised-button type="submit" [disabled]="loginForm.invalid || user.loading || user.uid"
+                  [ngClass]="routeAnimationsElements">
+                  <fa-icon icon="envelope"></fa-icon>
+                  <span>{{ 'anmf.account.login.email' | translate }}</span>
+                </button>
+              </div>
+
+              <div class="pass-btn">
+                <button type="button" mat-button color="warn" (click)="resetPassword()" [disabled]="user.loading || user.uid"
+                  [ngClass]="routeAnimationsElements">
+                  <span>{{ 'anmf.account.login.pass-reset' | translate }}</span>
+                </button>
+              </div>
+            </form>
+
+
+            <mat-divider [inset]="true"></mat-divider>
+
+
+            <div class="terms-container">
+              <h4 class="mat-subheading-1">
+                {{ 'anmf.account.login.terms-a' | translate }}
+                <a href="https://opensource.org/licenses/MIT" target="_blank">
+                  {{ 'anmf.account.login.terms-b' | translate }}
+                </a>
+                {{ 'anmf.account.login.terms-c' | translate }}
+                <a href="https://opensource.org/licenses/MIT" target="_blank">
+                  {{ 'anmf.account.login.terms-d' | translate }}
+                </a>
+              </h4>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+
+
+
+      <div class="col-md col-lg">
+
+        <mat-card class="features-card" [class.mat-elevation-z0]="true">
+          <mat-card-content class="features-card-content">
+            <h1 class="headline" [ngClass]="routeAnimationsElements">This is a test message! uknow
+              eventualy this will be replaced with a better quote!
+            </h1>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </div>
+  </div>
+</div>
