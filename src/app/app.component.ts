@@ -4,8 +4,16 @@ import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { ActivationEnd, Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Store, select } from '@ngrx/store';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+// Register & sanitize SVG icons
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material';
+
+// User Facade for Firebase authentication
+import { User } from './core/auth-fire/auth-fire.model';
+import { UserFacade } from './core/auth-fire/auth-fire.facade';
 
 import {
   ActionAuthLogin,
@@ -37,6 +45,9 @@ import {
 export class AppComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
+  // Observable User Facade property
+  user$: Observable<User> = this.userService.user$;
+
   @HostBinding('class')
   componentCssClass;
 
@@ -59,6 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
   settings: SettingsState;
   isAuthenticated: boolean;
   isHeaderSticky: boolean;
+  userPhotoUrl: any;
 
   constructor(
     public overlayContainer: OverlayContainer,
@@ -67,8 +79,18 @@ export class AppComponent implements OnInit, OnDestroy {
     private titleService: TitleService,
     private animationService: AnimationsService,
     private translate: TranslateService,
-    private storageService: LocalStorageService
-  ) {}
+    private storageService: LocalStorageService,
+    private userService: UserFacade,
+    private sanitizer: DomSanitizer,
+    iconRegistry: MatIconRegistry
+  ) {
+    iconRegistry.addSvgIcon(
+      'google-ic',
+      sanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/social-icons/google.svg'
+      )
+    );
+  }
 
   private static trackPageView(event: NavigationEnd) {
     (<any>window).ga('set', 'page', event.urlAfterRedirects);
@@ -80,6 +102,18 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // Subscribe to User facade authentication
+    this.user$.subscribe(user => {
+      console.log('ngOnInit User ID:' + user.uid);
+      if (user.uid) {
+        if (user.photoUrl) {
+          this.userPhotoUrl = this.sanitizer.bypassSecurityTrustStyle(
+            `url(${user.photoUrl}) no-repeat center center/40px 40px`
+          );
+        }
+      }
+    });
+
     this.translate.setDefaultLang('en');
     this.subscribeToSettings();
     this.subscribeToIsAuthenticated();
@@ -93,11 +127,13 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onLoginClick() {
-    this.store.dispatch(new ActionAuthLogin());
+    // this.store.dispatch(new ActionAuthLogin());
+    this.router.navigate(['account/login']);
   }
 
   onLogoutClick() {
-    this.store.dispatch(new ActionAuthLogout());
+    // this.store.dispatch(new ActionAuthLogout());
+    this.userService.logoutUser();
   }
 
   onLanguageSelect({ value: language }) {

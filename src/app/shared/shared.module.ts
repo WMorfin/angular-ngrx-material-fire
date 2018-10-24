@@ -24,6 +24,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -50,14 +51,17 @@ import {
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
+  faEnvelope
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
   faMediumM,
   faTwitter,
   faInstagram,
-  faYoutube
+  faYoutube,
+  faGoogle,
+  faFacebook
 } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
@@ -72,6 +76,8 @@ library.add(
   faTwitter,
   faInstagram,
   faYoutube,
+  faGoogle,
+  faFacebook,
   faPlus,
   faEdit,
   faTrash,
@@ -88,7 +94,8 @@ library.add(
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
+  faEnvelope
 );
 
 import { BigInputComponent } from './big-input/big-input.component';
@@ -118,6 +125,7 @@ import { BigInputActionComponent } from './big-input/big-input-action.component'
     MatSnackBarModule,
     MatSlideToggleModule,
     MatDividerModule,
+    MatProgressBarModule,
 
     FontAwesomeModule
   ],
@@ -149,6 +157,7 @@ import { BigInputActionComponent } from './big-input/big-input-action.component'
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressBarModule,
 
     FontAwesomeModule,
 

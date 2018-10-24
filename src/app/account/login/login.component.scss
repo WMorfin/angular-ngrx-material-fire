@@ -6,3 +6,170 @@
   margin: 0px;
   padding: 0px;
 }
+
+.heading-card {
+  width: 100%;
+  margin: 0px;
+  padding: 20px;
+  border-radius: 0px;
+  text-align: center;
+  img {
+    width: 100%;
+    height: 100%;
+    max-width: 728px;
+    max-height: 90px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+  }
+}
+
+.login-card {
+  margin: 20px 0;
+  padding: 0px;
+  text-align: center;
+  h3 {
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+.login-card-content {
+  padding: 20px 40px;
+}
+
+.social-btn > * {
+  width: 100%;
+  height: 40px;
+  max-width: 220px;
+  margin: 8px 0px;
+  padding: 0px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+  fa-icon {
+    font-size: 18px;
+  }
+  span {
+    padding-left: 16px;
+  }
+}
+
+.btn-google {
+  color: #757575;
+  background-color: white;
+}
+
+.btn-fb {
+  color: white;
+  background-color: #29487d;
+}
+
+.btn-twitter {
+  color: white;
+  background-color: #1da1f2;
+}
+
+.btn-github {
+  color: white;
+  background-color: #333;
+}
+
+.btn-email {
+  color: white;
+  background-color: #02bd7e;
+}
+
+.em-or {
+  padding-top: 0px;
+  width: 75%;
+  margin: 10px auto 30px auto;
+  text-align: center;
+  border-bottom: 1px solid #e4e4e4;
+  span {
+    padding: 7px;
+    position: relative;
+    top: 7px;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  mat-form-field {
+    margin: 5px 0px;
+  }
+}
+
+.pass-btn > * {
+  width: 100%;
+  height: 38px;
+  max-width: 160px;
+  margin: 10px 0px;
+  text-align: center;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.terms-container {
+  margin-top: 8px;
+  h4 {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  a {
+    font-weight: 700;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, xl)) {
+  .heading-card {
+    margin: 0px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  .heading-card {
+    margin: 0px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .heading-card {
+    margin: 0px;
+    padding: 15px;
+  }
+  .login-container {
+    margin: 0px;
+    padding: 20px 50px;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .heading-card {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .login-container {
+    margin: 0px;
+    padding: 25px;
+  }
+}

@@ -6,8 +6,10 @@
 
   anmf-account {
     nav {
+      background-color: mat-color($primary, lighter);
+
       .mat-tab-link {
-        background-color: mat-color($accent, darker);
+        background-color: mat-color($accent);
         color: mat-color($accent, default-contrast);
       }
     }

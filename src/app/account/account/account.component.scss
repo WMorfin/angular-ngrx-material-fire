@@ -1,12 +1,13 @@
 @import '../../../styles-variables';
 
 nav {
-  margin-bottom: 20px;
   width: 100%;
 
   .mat-tab-link {
     width: 100%;
-    padding: 0 15px;
-    font-size: 18px;
+    padding: 25px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
   }
 }
